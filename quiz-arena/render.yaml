@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: multiplayer-quiz-local
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.1
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: admin@quiz.com
+      - key: ADMIN_PASSWORD
+        sync: false
